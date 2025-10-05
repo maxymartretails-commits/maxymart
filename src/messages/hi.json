@@ -1,0 +1,192 @@
+{
+  "HomePage": {
+    "navlinks": {
+      "products": "उत्पादों",
+      "help": "मदद",
+      "getting_location": "स्थान प्राप्त करना",
+      "delivering_to": "डिलीवरी यहाँ",
+      "location": "जगह"
+    },
+    "hero-section": {
+      "maxymart_delivers": "मैक्सीमार्ट वितरित करता है",
+      "fresh_groceries": "ताजे किराने का सामान",
+      "essentials": "और आवश्यक वस्तुएँ",
+      "to": "",
+      "description": "किराना, फल, सब्ज़ियाँ और बहुत कुछ — आपके दरवाजे तक तेज़ और ताज़ा पहुँचाया जाता है।",
+      "input_placeholder": "सामान खोजें...",
+      "shop_now": "अब खरीदारी करें"
+    },
+    "category_section": {
+      "category_heading": "श्रेणी अनुसार खरीदें",
+      "off": "छूट"
+    },
+    "feature": {
+      "fast_delivery": "फटाफट डिलीवरी",
+      "fast_description": "आवश्यक सामान केवल कुछ घंटों में पहुँचाया जाता है।",
+      "fresh_products": "ताज़ा और प्रामाणिक सामान",
+      "fresh_desc": "किराना, स्किनकेयर और अन्य उत्पाद।",
+      "trust__quality": "विश्वसनीय गुणवत्ता",
+      "trust_desc": "सत्यापित वस्तुएँ। आसान रिटर्न।"
+    },
+    "popular_items": {
+      "heading": "लोकप्रिय उत्पाद"
+    },
+    "how_delivery_works": {
+      "heading": "हमारी डिलीवरी प्रक्रिया",
+      "choose_product": {
+        "heading": "उत्पाद चुनें",
+        "description": "अपने कार्ट में किराना, कॉस्मेटिक्स या स्टेशनरी जोड़ें।"
+      },
+      "select_address": {
+        "heading": "पता और समय चुनें",
+        "description": "अपना डिलीवरी स्थान और सुविधाजनक समय चुनें।"
+      },
+      "fast_delivery": {
+        "heading": "तेजी से डिलीवरी पाएं",
+        "description": "आराम से बैठें और हम आपका ऑर्डर जल्दी पहुँचाएँगे।"
+      }
+    },
+    "self_care": {
+      "heading": "सौंदर्य और आत्म-देखभाल"
+    },
+    "daily_fresh": {
+      "heading": "रोज़ाना ताज़ा और पैंट्री सामान"
+    },
+    "healthy_snacking": {
+      "heading": "स्वस्थ नाश्ता"
+    },
+    "back_to_school": {
+      "heading": "स्कूल / ऑफिस के जरूरी सामान"
+    },
+    "category": {
+      "placeholder": "उपश्रेणियाँ या ब्रांड खोजें...",
+      "brands": "ब्रांड्स",
+      "categories_not_found": "कोई उपश्रेणियाँ नहीं मिलीं.",
+      "filter": "फ़िल्टर",
+      "save": "की बचत",
+      "add": "जोड़ें"
+    },
+    "cart": {
+      "your_cart": "आपकी टोकरी",
+      "your_cart_empty": "आपकी टोकरी खाली है",
+      "apply": "लागू करें",
+      "view_all_coupon": "सभी कूपन देखें",
+      "cart_summary": "कार्ट सारांश",
+      "items_price": "वस्तुओं की कीमत",
+      "cgst": "CGST",
+      "sgst": "SGST",
+      "total_payable": "कुल देय राशि (सभी कर और शुल्क सहित)",
+      "proceed_to_checkout": "चेकआउट पर जाएँ",
+      "incl_all_taxes_charges": "सभी कर और शुल्क सहित",
+      "delivery_fee": "डिलीवरी शुल्क",
+      "apply_coupon": "कूपन लागू करें",
+      "coupon_valid_once": "कूपन प्रत्येक उपयोगकर्ता के लिए केवल एक बार मान्य है जब तक कि विशेष रूप से नहीं बताया गया हो।",
+      "min_order_value": "डिस्काउंट के बाद न्यूनतम ऑर्डर मूल्य",
+      "its_important": "होना आवश्यक है।",
+      "tax_delivery_not_discounted": "कर, डिलीवरी और पैकेजिंग शुल्क पर कोई छूट नहीं दी जाती।",
+      "cannot_combine_offers": "इसे अन्य ऑफ़र्स के साथ संयोजित नहीं किया जा सकता।",
+      "company_offer_withdraw": "कंपनी बिना नोटिस के किसी भी समय ऑफ़र वापस ले सकती है।",
+      "more": "और",
+      "hide_terms": "शर्तें छुपाएँ",
+      "add_to_cart": "कार्ट में जोड़ें",
+      "out_of_stock": "स्टॉक समाप्त है",
+      "go_to_cart": "कार्ट पर जाएँ",
+      "please_login_to_access_cart": "कृपया कार्ट देखने के लिए लॉगिन करें",
+      "login": "लॉगिन",
+      "item_removed_success": "सामान को टोकरी से सफलतापूर्वक हटाया गया",
+      "failed_to_remove_item": "सामान हटाने में विफल",
+      "failed_to_update_cart": "टोकरी अपडेट करने में विफल",
+      "offer_valid_message": "ऑफ़र केवल ₹{minOrderValue} न्यूनतम ऑर्डर पर मान्य है।",
+      "offer_applied": "ऑफ़र सफलतापूर्वक लागू हो गया"
+    },
+    "profile": {
+      "log_out": "बाहर निकलें",
+      "regular_user": "सामान्य उपयोगकर्ता",
+      "edit_profile": "प्रोफ़ाइल संपादित करें",
+      "full_name": "पूरा नाम",
+      "email": "ईमेल",
+      "phone": "फ़ोन",
+      "cancel": "रद्द करें",
+      "save": "सहेजें",
+      "orders": "ऑर्डर",
+      "addresses": "पते",
+      "saved_addresses": "सहेजे गए पते",
+      "edit": "संपादित करें",
+      "add_new_address": "नया पता जोड़ें",
+      "street": "गली",
+      "city": "शहर",
+      "state": "राज्य",
+      "country": "देश",
+      "zipcode": "पिनकोड",
+      "login_required_profile": "अपनी प्रोफ़ाइल देखने के लिए आपको लॉग इन होना आवश्यक है।",
+      "order_id": "ऑर्डर संख्या",
+      "quantity": "मात्रा",
+      "reorder": "फिर से ऑर्डर करें",
+      "view_details": "विवरण देखें",
+      "home": "घर"
+    },
+    "checkout": {
+      "checkout": "चेकआउट",
+      "customer_details": "ग्राहक विवरण",
+      "address": "पता",
+      "full_name": "पूरा नाम",
+      "full_address": "पूरा पता",
+      "door_flat_no": "दरवाज़ा / फ़्लैट नंबर",
+      "street_area": "गली / क्षेत्र",
+      "landmark_optional": "लैंडमार्क (वैकल्पिक)",
+      "pincode": "पिनकोड",
+      "payment_method": "भुगतान का तरीका",
+      "cash_on_delivery": "कैश ऑन डिलीवरी",
+      "total": "कुल",
+      "name_is_required": "नाम आवश्यक है",
+      "valid_phone": "मान्य 10 अंकों का फ़ोन नंबर दर्ज करें",
+      "phone_is_required": "फ़ोन आवश्यक है",
+      "address_is_required": "पता आवश्यक है",
+      "door_is_required": "घर/फ्लैट नंबर आवश्यक है",
+      "street_is_required": "सड़क/क्षेत्र आवश्यक है",
+      "valid_pincode": "मान्य 6 अंकों का पिनकोड दर्ज करें",
+      "pincode_required": "पिनकोड आवश्यक है",
+      "select_a_payment_method": "भुगतान का तरीका चुनें",
+      "payment_required": "भुगतान का तरीका आवश्यक है",
+      "your_cart_empty": "आपकी कार्ट खाली है",
+      "something_went_wrong": "आपका ऑर्डर करते समय कुछ गलती हुई। कृपया पुनः प्रयास करें।",
+      "payment_successful": "भुगतान सफल! आपका ऑर्डर place कर दिया गया है।",
+      "payment_successful_verification_failed": "भुगतान सफल लेकिन सत्यापन विफल। कृपया सपोर्ट से संपर्क करें।",
+      "proceed_to_pay": "भुगतान करें",
+      "phone": "Phone",
+      "upi_wallet": "UPI / वॉलेट",
+      "credit_debit_card": "क्रेडिट / डेबिट कार्ड",
+      "order_summary": "ऑर्डर सारांश",
+      "delivery_fee": "डिलीवरी शुल्क",
+      "processing": "प्रक्रियाधीन"
+    },
+    "deliverable": {
+      "sorry_we_can't_deliver": "क्षमा करें, हम अभी आपके स्थान पर डिलीवरी नहीं कर सकते।",
+      "expanding_services": "हम लगातार अपनी सेवाओं का विस्तार कर रहे हैं। कृपया थोड़ी देर बाद फिर से देखें या किसी अन्य स्थान पर डिलीवरी का प्रयास करें।”",
+      "go_back_home": "मुख्य पृष्ठ पर वापस जाएँ",
+      "deliver_to_another_location": "किसी अन्य स्थान पर डिलीवर करें",
+      "check_availability": "उपलब्धता जांचें",
+      "sorry_we_dont_deliver_to_this_location": "क्षमा करें, हम इस स्थान पर डिलीवर नहीं करते।",
+      "enter_pin_code": "पिन कोड दर्ज करें"
+    },
+    "contact-us": {
+      "contact_us": "संपर्क करें",
+      "we_love_to_hear_from_you": "हम आपकी प्रतिक्रिया सुनना पसंद करेंगे! कृपया नीचे दिए गए फॉर्म को भरें या दिए गए विवरण के माध्यम से हमसे संपर्क करें।",
+      "name": "नाम",
+      "your_name": "आपका नाम",
+      "email": "ईमेल",
+      "subject": "विषय",
+      "message": "संदेश",
+      "your_message": "आपका संदेश",
+      "send_message": "संदेश भेजें",
+      "get_in_touch": "संपर्क में रहें",
+      "feel_free_to_reach": "ईमेल या फोन के माध्यम से स्वतंत्र रूप से संपर्क करें। हम मदद के लिए यहाँ हैं!",
+      "address": "दुकान नं. 01 & 02, जम जम प्लाज़ा, नारायणी विहार, जयपुर, झुंझुनू बाईपास, सीकर, राजस्थान - 332001"
+    },
+    "not-found": {
+      "page_not_found": "पृष्ठ नहीं मिला",
+      "sorry_page_doesnt_exist": "क्षमा करें, आप जिस पृष्ठ को ढूंढ रहे हैं वह मौजूद नहीं है, स्थानांतरित किया जा चुका है, या अस्थायी रूप से अनुपलब्ध है।",
+      "go_back_home": "मुख्य पृष्ठ पर वापस जाएँ"
+    }
+  }
+}

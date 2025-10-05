@@ -1,0 +1,192 @@
+{
+  "HomePage": {
+    "navlinks": {
+      "products": "Products",
+      "help": "Help",
+      "getting_location": "Getting Location",
+      "delivering_to": "Delivering To",
+      "location": "Location"
+    },
+    "hero-section": {
+      "maxymart_delivers": "MaxyMart Delivers",
+      "fresh_groceries": "fresh groceries",
+      "essentials": "essentials",
+      "to": "to",
+      "description": "Groceries, fruits, vegetables & more — delivered fast & fresh to your doorstep",
+      "input_placeholder": "Search for products...",
+      "shop_now": "Shop Now"
+    },
+    "category_section": {
+      "category_heading": "Shop by Category",
+      "off": "OFF"
+    },
+    "feature": {
+      "fast_delivery": "Fast Delivery",
+      "fast_description": "Essentials delivered in hours.",
+      "fresh_products": "Fresh, Authentic Products",
+      "fresh_desc": "Groceries, skincare, and more.",
+      "trust__quality": "Trusted Quality",
+      "trust_desc": "Verified items. Easy returns."
+    },
+    "popular_items": {
+      "heading": "Popular Items"
+    },
+    "how_delivery_works": {
+      "heading": "How Delivery Works",
+      "choose_product": {
+        "heading": "Choose Products",
+        "description": "Browse and add groceries, cosmetics, or stationery to your cart."
+      },
+      "select_address": {
+        "heading": "Select Address & Slot",
+        "description": "Pick your delivery location and a convenient time slot."
+      },
+      "fast_delivery": {
+        "heading": "Get Fast Delivery",
+        "description": "Sit back and relax while we deliver your order quickly."
+      }
+    },
+    "self_care": {
+      "heading": "Beauty & Self-Care"
+    },
+    "daily_fresh": {
+      "heading": "Daily Fresh & Pantry"
+    },
+    "healthy_snacking": {
+      "heading": "Healthy Snacking"
+    },
+    "back_to_school": {
+      "heading": "Back to School / Work Essentials"
+    },
+    "category": {
+      "placeholder": "Search subcategories or brands...",
+      "brands": "Brands",
+      "categories_not_found": "No subcategories found.",
+      "filter": "Filter",
+      "save": "SAVE",
+      "add": "Add"
+    },
+    "cart": {
+      "your_cart": "Your Cart",
+      "your_cart_empty": "Your cart is empty",
+      "apply": "Apply",
+      "view_all_coupon": "View all coupons",
+      "cart_summary": "Cart Summary",
+      "items_price": "Items Price",
+      "cgst": "CGST",
+      "sgst": "SGST",
+      "total_payable": "Total Payable",
+      "proceed_to_checkout": "Proceed to Checkout",
+      "incl_all_taxes_charges": "Incl. all taxes and charges",
+      "delivery_fee": "Delivery Fee",
+      "apply_coupon": "Apply Coupon",
+      "coupon_valid_once": "Coupon valid only once per user unless specified.",
+      "min_order_value": "Minimum order value",
+      "its_important": "required after discounts.",
+      "tax_delivery_not_discounted": "Taxes, delivery, and packaging charges not discounted.",
+      "cannot_combine_offers": "Cannot be combined with other offers.",
+      "company_offer_withdraw": "Company may withdraw offer anytime without notice.",
+      "more": "More",
+      "hide_terms": "Hide Terms",
+      "add_to_cart": "Add to Cart",
+      "out_of_stock": "Out of Stock",
+      "go_to_cart": "Go to Cart",
+      "please_login_to_access_cart": "Please login to access cart",
+      "login": "Login",
+      "item_removed_success": "Item removed from cart successfully",
+      "failed_to_remove_item": "Failed to remove item",
+      "failed_to_update_cart": "Failed to update cart",
+      "offer_valid_message": "Offer is valid only on a minimum order of ₹{minOrderValue}.",
+      "offer_applied": "Offer applied successfully"
+    },
+    "profile": {
+      "log_out": "Log Out",
+      "regular_user": "Regular User",
+      "edit_profile": "Edit Profile",
+      "full_name": "Full Name",
+      "email": "Email",
+      "phone": "Phone",
+      "cancel": "Cancel",
+      "save": "Save",
+      "orders": "Orders",
+      "addresses": "Addresses",
+      "saved_addresses": "Saved Addresses",
+      "edit": "Edit",
+      "add_new_address": "Add New Address",
+      "street": "Street",
+      "city": "City",
+      "state": "State",
+      "country": "Country",
+      "zipcode": "Zipcode",
+      "login_required_profile": "You must be logged in to view your profile",
+      "order_id": "Order ID",
+      "quantity": "Qty",
+      "reorder": "Reorder",
+      "view_details": "View Details",
+      "home": "Home"
+    },
+    "checkout": {
+      "checkout": "Checkout",
+      "customer_details": "Customer Details",
+      "address": "Address",
+      "full_name": "Full Name",
+      "full_address": "Full Address",
+      "door_flat_no": "Door / Flat no",
+      "street_area": "Street Area",
+      "landmark_optional": "Landmark (Optional)",
+      "pincode": "Pincode",
+      "payment_method": "Payment Method",
+      "cash_on_delivery": "Cash On Delivery",
+      "total": "Total",
+      "name_is_required": "Name is required",
+      "valid_phone": "Enter a valid 10-digit phone",
+      "phone_is_required": "Phone is required",
+      "address_is_required": "Address is required",
+      "door_is_required": "Door/Flat no. is required",
+      "street_is_required": "Street/Area is required",
+      "valid_pincode": "Enter a valid 6-digit pincode",
+      "pincode_required": "Pincode is required",
+      "select_a_payment_method": "Select a payment method",
+      "payment_required": "Payment method is required",
+      "your_cart_empty": "Your cart is empty",
+      "something_went_wrong": "Something went wrong while placing your order. Please try again.",
+      "payment_successful": "Payment successful! Your order is placed.",
+      "payment_successful_verification_failed": "Payment successful but verification failed. Please contact support.",
+      "proceed_to_pay": "Proceed to Pay",
+      "phone": "Phone",
+      "upi_wallet": "UPI / Wallet",
+      "credit_debit_card": "Credit / Debit Card",
+      "order_summary": "Order Summary",
+      "delivery_fee": "Delivery Fee",
+      "processing": "Processing"
+    },
+    "deliverable": {
+      "sorry_we_can't_deliver": "Sorry, we do not deliver to your location yet.",
+      "expanding_services": "We’re constantly expanding our services. Please check back soon or try delivering to another location.",
+      "go_back_home": "Go Back Home",
+      "deliver_to_another_location": "Deliver to Another Location",
+      "check_availability": "Check Availability",
+      "sorry_we_dont_deliver_to_this_location": "Sorry we don't deliver to this location",
+      "enter_pin_code": "Enter Pin Code"
+    },
+    "contact-us": {
+      "contact_us": "Contact Us",
+      "we_love_to_hear_from_you": "We'd love to hear from you! Fill out the form below or reach us through the provided details.",
+      "name": "Name",
+      "your_name": "Your Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "your_message": "Your message",
+      "send_message": "Send Message",
+      "get_in_touch": "Get in touch",
+      "feel_free_to_reach": "Feel free to reach out via email or phone. We’re here to help!",
+      "address": "Shop no. 01 & 02 Jam Jam Plaza, Narayani Vihar,Jaipur,Jhunjhune Bypass,Sikar,Rajasthan - 332001"
+    },
+    "not-found":{
+      "page_not_found":"Page Not Found",
+      "sorry_page_doesnt_exist":"Sorry, the page you are looking for doesn’t exist, has been moved, or is temporarily unavailable.",
+      "go_back_home": "Go Back Home"
+    }
+  }
+}

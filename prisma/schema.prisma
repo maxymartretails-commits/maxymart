@@ -1,0 +1,374 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// enum OrderStatus {
+//   PENDING
+//   PROCESSING
+//   SHIPPED
+//   DELIVERED
+//   CANCELLED
+// }
+
+model Role {
+  id    String @id @default(uuid())
+  name  String @unique // e.g. "USER", "ADMIN", "DELIVERY_AGENT"
+  users User[]
+}
+
+model Account {
+  id                String   @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?  @db.Text
+  access_token      String?  @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?  @db.Text
+  session_state     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deleted           Boolean  @default(false)
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model User {
+  id            String     @id @default(uuid())
+  name          String
+  email         String?    @unique
+  password      String?
+  phoneNumber   String?    @unique
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  deleted       Boolean    @default(false)
+  profileImage  String
+  emailVerified String?
+  roles         Role       @relation(fields: [roleId], references: [id])
+  roleId        String
+  Session       Session[]
+  Account       Account[]
+  Order         Order[]
+  Address       Address[]
+  CartItem      CartItem[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  deleted    Boolean  @default(false)
+
+  @@unique([identifier, token])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  deleted      Boolean  @default(false)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Product {
+  id            String           @id @default(uuid())
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+  deleted       Boolean          @default(false)
+  name          String
+  description   String
+  category      Category         @relation(fields: [categoryId], references: [id])
+  categoryId    String
+  images        String[]
+  orderItems    OrderItem[]
+  subCategory   SubCategory      @relation(fields: [subCategoryId], references: [id])
+  subCategoryId String
+  brand         Brand            @relation(fields: [brandId], references: [id])
+  brandId       String
+  hsnCode       String // HSN code for GST
+  cgst          Float
+  sgst          Float
+  igst          Float
+  variants      ProductVariant[]
+  CartItem      CartItem[]
+  // offers        Offers?          @relation(fields: [offersId], references: [id])
+  // offersId      String?
+  offers        Offers[]         @relation("OfferProducts")
+}
+
+model Category {
+  id          String        @id @default(uuid())
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  deleted     Boolean       @default(false)
+  name        String        @unique
+  description String?
+  image       String?
+  products    Product[]
+  subCategory SubCategory[]
+  // Offers          Offers?       @relation(fields: [offersId], references: [id])
+  // offersId        String?
+  // offers      Offers[]      @relation("OfferCategories")
+
+  Offers Offers[] @relation("OfferCategories")
+}
+
+model ProductVariant {
+  id              String      @id @default(uuid())
+  product         Product     @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId       String
+  unit            String // e.g., "ml", "L", "kg"
+  unitSize        Int // e.g., 500, 1, 2
+  price           Float // price for this variant //original price
+  discountedPrice Float // Shown as current price (can be same as price if no discount)
+  stock           Int
+  orderItems      OrderItem[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  deleted         Boolean     @default(false)
+  CartItem        CartItem[]
+  // Offers        Offers?     @relation(fields: [offersId], references: [id])
+  // offersId      String?
+  offers          Offers[]    @relation("OfferVariants")
+  // Offers     Offers[]
+}
+
+model SubCategory {
+  id         String    @id @default(uuid())
+  name       String // e.g., "Milk"
+  category   Category  @relation(fields: [categoryId], references: [id])
+  categoryId String
+  products   Product[]
+  image      String?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  deleted    Boolean   @default(false)
+  // Offers             Offers?   @relation(fields: [offersId], references: [id])
+  // offersId           String?
+  offers     Offers[]  @relation("OfferSubCategories")
+}
+
+model Brand {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  image     String?
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deleted   Boolean   @default(false)
+  // Offers      Offers?   @relation(fields: [offersId], references: [id])
+  // offersId    String?
+  offers    Offers[]  @relation("OfferBrands")
+}
+
+model Order {
+  id            String      @id @default(uuid())
+  user          User        @relation(fields: [userId], references: [id])
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  deleted       Boolean     @default(false)
+  userId        String
+  storeId String
+  items         OrderItem[]
+  total         Float // final total = subtotal + gstTotal + deliveryFee
+  subTotal      Float // sum of base prices
+  gstTotal      Float // cgst + sgst + igst
+  deliveryFee   Int
+  paymentStatus String      @default("pending")
+  status        String
+  address       Address     @relation(fields: [addressId], references: [id])
+  offers        Offers?     @relation(fields: [offerId], references: [id])
+  addressId     String
+  offerId       String?
+  payments      Payments[]
+  invoice       String      @default("")
+  invoiceId     String?
+  isIGST        Boolean     @default(false)
+}
+
+model OrderItem {
+  id               String         @id @default(uuid())
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  deleted          Boolean        @default(false)
+  order            Order          @relation(fields: [orderId], references: [id])
+  orderId          String
+  product          Product        @relation(fields: [productId], references: [id])
+  productId        String
+  quantity         Int
+  price            Float // basePrice (price at time of order)
+  ProductVariant   ProductVariant @relation(fields: [productVariantId], references: [id])
+  productVariantId String
+}
+
+model CartItem {
+  id               String          @id @default(uuid())
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  deleted          Boolean         @default(false)
+  user             User            @relation(fields: [userId], references: [id])
+  userId           String
+  product          Product         @relation(fields: [productId], references: [id])
+  productId        String
+  productVariant   ProductVariant? @relation(fields: [productVariantId], references: [id])
+  productVariantId String?
+  quantity         Int
+}
+
+model Address {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted   Boolean  @default(false)
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  street    String?
+  latitude  Float 
+  longitude Float
+  city      String
+  state     String
+  country   String
+  zipCode   String
+  orders    Order[]
+}
+
+model OtpCode {
+  id          Int      @id @default(autoincrement())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  deleted     Boolean  @default(false)
+  otpHash     String
+  expiresAt   DateTime
+  phoneNumber String
+
+  // Optional: relation to User model
+  @@index([expiresAt])
+}
+
+model Payments {
+  id                String   @id @default(uuid())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  deleted           Boolean  @default(false)
+  orderId           String // Foreign key to your local Order model
+  razorpayOrderId   String?  @unique // e.g., "order_DslnoIgkIDL8Zt"
+  razorpayPaymentId String? // e.g., "pay_DslnoIgkIDL8Zt"
+  signature         String? // Razorpay signature
+  amount            Float // stored in rupees
+  currency          String   @default("INR")
+  status            String // "created", "paid", "failed", etc.
+  method            String? // "card", "upi", "netbanking"
+  captured          Boolean  @default(false)
+  email             String?
+  contact           String?
+
+  order Order @relation(fields: [orderId], references: [id])
+}
+
+model DeliveryZone {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted   Boolean  @default(false)
+  state     String?
+  district  String?
+  name      String
+  latitude  Float
+  longitude Float
+  radiusKm  Float
+  stores    Store[] 
+  }
+model Store {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  deleted   Boolean  @default(false)
+  name      String
+  latitude  Float
+  longitude Float
+  mapLink      String?
+  zoneId    String
+  zone      DeliveryZone @relation(fields: [zoneId], references: [id])
+}
+
+
+enum OfferType {
+  PERCENTAGE
+  FLAT
+}
+
+// enum OfferScope {
+//   PRODUCT
+//   CATEGORY
+//   ORDER
+//   BRAND
+// }
+
+model Offers {
+  id            String    @id @default(uuid())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  deleted       Boolean   @default(false)
+  title         String
+  description   String?
+  type          OfferType // 'PERCENTAGE' or 'FLAT'
+  discountValue Float // e.g., 10 for 10% or 100 for ₹100
+  maxDiscount   Float? // only for percentage type
+  minOrderValue Float? // optional condition
+  couponCode    String?   @unique // optional, only if applied via code
+  usageLimit    Int? // max total redemptions
+  usagePerUser  Int? // max redemptions per user
+  startDate     DateTime
+  endDate       DateTime
+  isActive      Boolean   @default(false)
+  scope         String
+  // Relations to define offer eligibility
+  categories    Category? @relation("OfferCategories", fields: [categoryId], references: [id])
+  categoryId    String?
+
+  brands  Brand?  @relation("OfferBrands", fields: [brandId], references: [id])
+  brandId String?
+
+  products  Product? @relation("OfferProducts", fields: [productId], references: [id])
+  productId String?
+
+  ProductVariant ProductVariant? @relation("OfferVariants", fields: [productVariantId], references: [id])
+
+  productVariantId String?
+
+  SubCategory   SubCategory? @relation("OfferSubCategories", fields: [subCategoryId], references: [id])
+  subCategoryId String?
+
+  Order      Order[]
+  Redemption Redemption[]
+}
+
+model Redemption {
+  id      String   @id @default(cuid())
+  offerId String
+  userId  String
+  usedAt  DateTime @default(now())
+
+  offer Offers @relation(fields: [offerId], references: [id])
+}

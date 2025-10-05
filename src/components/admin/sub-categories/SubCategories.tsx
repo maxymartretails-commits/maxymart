@@ -1,0 +1,69 @@
+"use client";
+
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AllCommunityModule, ColDef, ModuleRegistry } from "ag-grid-community";
+import { AgGridReact } from "ag-grid-react";
+import React, { useState } from "react";
+import { useGetBrandsQuery } from "@/lib/slices/brandsApiSlice";
+import { useGetSubCategoryQuery } from "@/lib/slices/subCategoryApiSlice";
+import { Field } from "formik";
+import AddEditSubCategoryModal from "./add-edit-sub-category-modal/AddEditSubCategoryModal";
+import ActionsCell from "./action-cell/ActionCell";
+
+// Register all community features
+ModuleRegistry.registerModules([AllCommunityModule]);
+
+const SubCategories = () => {
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const { data: subCategoryData } = useGetSubCategoryQuery();
+
+  const columnDefs = [
+    { field: "id", sortable: true },
+    { field: "createdAt", sortable: true },
+    { field: "updatedAt", sortable: true },
+    { field: "categoryId", sortable: true },
+    { field: "name", headerName: "Brand Name", sortable: true },
+    { field: "image", sortable: true },
+    {
+      field: "actions",
+      headerName: "Actions",
+        cellRenderer: ActionsCell,
+      sortable: false,
+    },
+  ];
+  return (
+    <div className="p-6 bg-white rounded-2xl shadow-lg">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
+        <h2 className="text-2xl font-semibold">Sub Category Management</h2>
+        <div className="flex gap-3">
+          <button
+            className="flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition"
+            onClick={() => setIsAddModalOpen(true)}
+          >
+            <FontAwesomeIcon icon={faPlus} /> Add SubCategory
+          </button>
+        </div>
+      </div>
+      <div
+        className="ag-theme-alpine"
+        style={{ height: "70vh", width: "100%" }}
+      >
+        <AgGridReact
+          rowData={subCategoryData || []}
+          columnDefs={columnDefs as ColDef[]}
+          pagination={true}
+          theme={"legacy"}
+          autoSizeStrategy={{ type: "fitGridWidth" }}
+        />
+      </div>
+
+      <AddEditSubCategoryModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+      />
+    </div>
+  );
+};
+
+export default SubCategories;
